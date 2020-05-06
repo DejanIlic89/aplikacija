@@ -67,7 +67,7 @@ export class Article {
 
   @ManyToMany(type => Feature, feature => feature.articles)
   @JoinTable({
-    name: "article-feature",
+    name: "article_feature",
     joinColumn: { name: "article_id", referencedColumnName: "articleId" },
     inverseJoinColumn: { name: "feature_id", referencedColumnName: "featureId" }
   })
