@@ -10,7 +10,7 @@ import { Article } from "entities/article.entity";
     },
     params: {
         id: {
-            field: 'articleId',
+            field: 'article_id',
             type: 'number',
             primary: true
         }

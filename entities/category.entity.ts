@@ -24,7 +24,7 @@ export class Category {
   @Column({ type: "varchar", name: "image_path", unique: true, length: 128 })
   imagePath: string;
 
-  @Column({ type: "int", name: "parent_category_id", nullable: true, unsigned: true })
+  @Column({ type: "int", name: "parent__category_id", nullable: true, unsigned: true })
   parentCategoryId: number | null;
 
   @OneToMany(() => Article, (article) => article.category)
@@ -35,7 +35,7 @@ export class Category {
     onUpdate: "CASCADE",
   })
   @JoinColumn([
-    { name: "parent_category_id", referencedColumnName: "categoryId" },
+    { name: "parent__category_id", referencedColumnName: "categoryId" },
   ])
   parentCategory: Category;
 
