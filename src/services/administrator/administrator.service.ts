@@ -5,7 +5,7 @@ import { Repository } from 'typeorm';
 import { AddAdministratorDto } from 'src/dtos/administrator/add.administrator.dto';
 import { EditAdministratorDto } from 'src/dtos/administrator/edit.administrator.dto';
 import { ApiResponse } from 'src/misc/api.response.class';
-import { resolve } from 'dns';
+import * as crypto from 'crypto';
 
 @Injectable()
 export class AdministratorService {
@@ -23,7 +23,6 @@ export class AdministratorService {
     }
 
     add(data: AddAdministratorDto): Promise<Administrator | ApiResponse> {
-        const crypto = require('crypto');
         const passwordHash = crypto.createHash('sha512');
         passwordHash.update(data.password);
         const passwordHashString = passwordHash.digest('hex').toUpperCase();
@@ -51,7 +50,6 @@ export class AdministratorService {
             })
         }
 
-        const crypto = require('crypto');
         const passwordHash = crypto.createHash('sha512');
         passwordHash.update(data.password);
         const passwordHashString = passwordHash.digest('hex').toUpperCase();

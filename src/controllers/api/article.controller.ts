@@ -17,7 +17,21 @@ import { Article } from "entities/article.entity";
     },
     query: {
         join: {
-            
+            category: {
+                eager: true
+            },
+            photos: {
+                eager: true
+            },
+            articlePrices: {
+                eager: true
+            },
+            articleFeatures: {
+                eager: true
+            },
+            features: {
+                eager: true
+            }
         }
     }
 })
