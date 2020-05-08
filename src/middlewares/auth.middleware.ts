@@ -1,4 +1,4 @@
-import { NestMiddleware, HttpException, HttpStatus, Injectable } from "@nestjs/common";
+import { NestMiddleware, HttpException, HttpStatus, Injectable, Catch } from "@nestjs/common";
 import { NextFunction, Request, Response } from "express";
 import { AdministratorService } from "src/services/administrator/administrator.service";
 import * as jwt from "jsonwebtoken";
@@ -24,7 +24,13 @@ export class AuthMiddleware implements NestMiddleware {
 
         const tokenString = tokenParts[1];
 
-        const jwtData: JwtDataAdministratorDto = jwt.verify(tokenString, jwtSecret);
+        let jwtData: JwtDataAdministratorDto;
+        
+        try {
+            jwtData = jwt.verify(tokenString, jwtSecret);
+        } catch (e) {
+            throw new HttpException('Bad token found', HttpStatus.UNAUTHORIZED);
+        }
 
         if (!jwtData) {
             throw new HttpException('Bad token found', HttpStatus.UNAUTHORIZED);
