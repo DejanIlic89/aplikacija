@@ -21,7 +21,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nestjs/common": "^7.0.0",
+    "@nestjs/common": "^7.5.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/swagger": "^4.5.4",
@@ -36,7 +36,7 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
-    "sharp": "^0.25.2",
+    "sharp": "^0.28.0",
     "typeorm": "^0.2.24",
     "typeorm-model-generator": "^0.4.2"
   },
